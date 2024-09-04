@@ -1,10 +1,6 @@
 #pragma once
 
-/* The list of points stored in each
-*/
-
 typedef unsigned int uint;
-
 typedef struct { float x, y; } Point;
 
 void swap(Point& const a, Point& const b);
