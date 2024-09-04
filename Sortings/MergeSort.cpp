@@ -3,7 +3,6 @@
 
 
 
-//template<typename T>
 void MergeSort(int* p, uint n)
 {
 	uint x = 0u, y = 0u, l = n >> 1, r = n + 1u >> 1;
