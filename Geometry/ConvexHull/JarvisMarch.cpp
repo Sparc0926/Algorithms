@@ -16,7 +16,7 @@ uint JarvisMarch(Point* p, uint n)
 	// Set the leftmost point as the starting point
 	for (uint i = 1; i < n; i++)
 		if (p[i].x < p[0].x)  swap(p[0], p[i]);
-	Point strt = p[0];
+	Point s = p[0];
 	// Compute the second point on the convex hull
 	for (uint i = 2; i < n; i++) {
 		auto x1 = p[1].x - p[0].x, y1 = p[1].y - p[0].y;
@@ -28,7 +28,7 @@ uint JarvisMarch(Point* p, uint n)
 	}
 	swap(p[0], p[1]);
 	// Compute the rest of points on the convex hull
-	while (p[cnt - 1].x != strt.x || p[cnt - 1].y != strt.y) {
+	while (p[cnt - 1].x != s.x || p[cnt - 1].y != s.y) {
 		for (uint j = cnt + 1; j < n; j++) {
 			auto x1 = p[cnt].x - p[cnt - 1].x, y1 = p[cnt].y - p[cnt - 1].y;
 			auto x2 = p[j].x - p[cnt - 1].x, y2 = p[j].y - p[cnt - 1].y;
