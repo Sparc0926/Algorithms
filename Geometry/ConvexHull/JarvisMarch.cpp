@@ -21,8 +21,8 @@ uint JarvisMarch(Point* p, uint n)
 		auto x2 = p[i].x - p[0].x, y2 = p[i].y - p[0].y;
 		// The determinant is positive
 		if (x1 * y2 > x2 * y1)  swap(p[1], p[i]);
-		else if (x1 * y2 == x2 * y1)
-			if ((x2 <= 0 && x2 > x1) || (x2 >= 0 && x2 < x1))  swap(p[1], p[i]);
+		else if (x1 * y2 == x2 * y1 && ((x2 <= 0 && x2 > x1) || (x2 >= 0 && x2 < x1)))
+			swap(p[1], p[i]);
 	}
 	swap(p[0], p[1]);
 	while (p[cnt - 1].x != s.x || p[cnt - 1].y != s.y) {
@@ -30,8 +30,8 @@ uint JarvisMarch(Point* p, uint n)
 			auto x1 = p[cnt].x - p[cnt - 1].x, y1 = p[cnt].y - p[cnt - 1].y;
 			auto x2 = p[j].x - p[cnt - 1].x, y2 = p[j].y - p[cnt - 1].y;
 			if (x1 * y2 > x2 * y1)  swap(p[cnt], p[j]);
-			else if (x1 * y2 == x2 * y1)
-				if ((x2 <= 0 && x2 > x1) || (x2 >= 0 && x2 < x1))  swap(p[cnt], p[j]);
+			else if (x1 * y2 == x2 * y1 && ((x2 <= 0 && x2 > x1) || (x2 >= 0 && x2 < x1)))
+				swap(p[cnt], p[j]);
 		}
 		cnt++;
 	}
