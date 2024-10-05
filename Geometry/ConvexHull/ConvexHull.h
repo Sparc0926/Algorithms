@@ -1,9 +1,11 @@
 #pragma once
 
-typedef unsigned int uint;
 typedef struct { float x, y; } Point;
 
-void swap(Point& const a, Point& const b);
+#define SWAP_POINT_PTR(A, B) {\
+	Point temp;\
+	temp = *(A), *(A) = *(B), *(B) = temp;\
+}
 
-uint JarvisMarch(Point* p, uint n);  // O(nh)
-uint GrahamScan(Point* p, uint n);  // O(nlogn)
+unsigned int JarvisMarch(Point* p, unsigned int n);  // O(nh)
+unsigned int GrahamScan(Point* p, unsigned int n);  // O(nlogn)
